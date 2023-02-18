@@ -42,5 +42,29 @@
 }
 
 .cart{
-  width: 400px;
+  width: 800px;
+}
+
+.cardimg{
+  width: 600px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body{
+  display: flex;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-footer{
+  text-align: end;
+}
+
+.row{
+  display: flex;
+  justify-content: space-around;
 }

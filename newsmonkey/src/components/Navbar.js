@@ -1,4 +1,16 @@
-function Navbar(){
+import { useState } from "react";
+
+function Navbar(props){
+
+    const [term, setterm]=useState(' ');
+
+    const termdata=(event)=>{
+        setterm(event.target.value);
+    }
+
+    const sendterm=()=>{
+        props.getterm(term);
+    }
     return(
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -17,6 +29,10 @@ function Navbar(){
                         </li>
                     </ul>
                     </div>
+      <form className="d-flex" role="search">
+        <input className="form-control me-2" type="search" value={term} onChange={termdata} placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" onClick={sendterm} type="submit">Search</button>
+      </form>
                 </div>
             </nav>
 

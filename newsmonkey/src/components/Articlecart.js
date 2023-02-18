@@ -1,24 +1,28 @@
 function Articlecart(props){
-    console.log(props.productsl);
 
     const prolist=()=>{
         if(props.productsl){
-        var list = props.productsl.map(()=>{
-            return<div className="conta container"> 
-                    <div className="card text-center cart mx-3 my-3">
+        var list = props.productsl.map((element)=>{
+            return <div className="col-md-4 card text-center cart mx-3 my-3" key={element.title}>
                     <div className="card-header">
-                        Featured
+                       <span>Author: {element.author}</span>  <span>Source: {element.source.name}</span>
                     </div>
                     <div className="card-body">
-                        <h5 className="card-title">Special title treatment</h5>
-                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                        <div className="cardimg" style={{backgroundImage: "url("+element.urlToImage+")"}}>
+                                 </div>
+                        <div>
+                            <h5 className="card-title">{element.title}</h5>
+                            <p className="card-text">{element.content}</p>
+                    <a href={element.url} className="btn btn-primary">Read More</a>
+                       
+                        </div>
                     </div>
+
                     <div className="card-footer text-muted">
-                        2 days ago
+                        { element.publishedAt.split("T")[0].split("-").reverse().join("-")} Time: {element.publishedAt.split("T")[1].slice(0, -1)}
                     </div>
                 </div>
-            </div>
+    
 
             
              
